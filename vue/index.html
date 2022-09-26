@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vite + Vue</title>
+</head>
+<body class="bg-gray-900 flex flex-col w-screen">
+
+
+<!-- drawer init and toggle -->
+<div
+    class="absolute left-0 z-10 text-white md:rounded-br-full shadow focus:ring-4 hover:cursor-pointer font-medium text-sm pb-8 pr-8 pl-4 pt-4 mr-2 bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-blue-800"
+    data-drawer-target="drawer-backdrop" data-drawer-show="drawer-backdrop"
+    data-drawer-backdrop="true" aria-controls="drawer-backdrop">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+         class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+    </svg>
+</div>
+<div
+    class="absolute left-0 text-white md:rounded-br-xl focus:ring-4 font-medium pl-24 pr-4 text-sm py-3 mr-2 bg-blue-700 focus:outline-none focus:ring-blue-800">
+    <ul class="flex gap-4">
+        <li><a class="hover:text-blue-400" href="Dashboard">Dashboard</a></li>
+        <li><a class="hover:text-blue-400" href="Dashboard">HDV</a></li>
+        <li><a class="hover:text-blue-400" href="Dashboard">Guilde</a></li>
+    </ul>
+</div>
+
+
+<!-- drawer component -->
+<div id="drawer-backdrop"
+     class="fixed z-40 h-screen p-4 overflow-y-auto bg-white w-80 dark:bg-gray-800 transition-transform left-0 top-0 -translate-x-full"
+     tabindex="-1" aria-labelledby="drawer-backdrop-label" aria-hidden="true">
+    <h5 id="drawer-backdrop-label" class="text-base font-semibold text-gray-500 uppercase dark:text-gray-400">Menu</h5>
+    <button type="button" data-drawer-dismiss="drawer-backdrop" aria-controls="drawer-backdrop"
+            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+             xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"></path>
+        </svg>
+        <span class="sr-only">Close menu</span>
+    </button>
+    <div class="py-4 overflow-y-auto">
+        <ul class="space-y-2">
+            <li>
+                <a href="Dashboard"
+                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg aria-hidden="true"
+                         class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                        <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                    </svg>
+                    <span class="ml-3">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="Login"
+                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg aria-hidden="true"
+                         class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                    </svg>
+                    <span class="flex-1 ml-3 whitespace-nowrap">Login</span>
+                </a>
+            </li>
+            <li>
+                <a href="Register"
+                   class="flex items-center p-2 text-base font-normal text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700">
+                    <svg aria-hidden="true"
+                         class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                         fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+                    </svg>
+                    <span class="flex-1 ml-3 whitespace-nowrap">Register</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<div id="app" class="w-full h-full"></div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
